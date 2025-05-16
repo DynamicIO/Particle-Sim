@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <div class="controls">
+        <button id="shapeToggle" class="control-button">
+            <span class="button-text">Toggle Shapes</span>
+        </button>
+        <button id="nuclearToggle" class="control-button">
+            <span class="button-text">Nuclear Mode</span>
+        </button>
+        <button id="settingsToggle" class="control-button">
+            <span class="button-text">Settings</span>
+        </button>
+        <button id="resetButton" class="control-button">
+            <span class="button-text">Reset</span>
+        </button>
+        <div class="stats">
+            <span id="particleCount">Particles: 0</span>
+            <span id="fps">FPS: 0</span>
+            <span id="energy">Energy: 0</span>
+        </div>
+    </div>
+
+    <div id="settingsPanel" class="settings-panel">
+        <h3>Settings</h3>
+        <div class="setting-group">
+            <label for="particleCountSlider">Particles per Click:</label>
+            <input type="range" id="particleCountSlider" min="1" max="200" value="5">
+            <span id="particleCountValue">5</span>
+        </div>
+        <div class="setting-group">
+            <label for="initialParticleSlider">Starting Particles:</label>
+            <input type="range" id="initialParticleSlider" min="1" max="50" value="1">
+            <span id="initialParticleValue">1</span>
+        </div>
+        <div class="setting-group">
+            <label>Particle Speed</label>
+            <input type="range" id="speedSlider" min="0.1" max="5" step="0.1" value="1">
+            <span id="speedValue">1.0</span>
+        </div>
+        <div class="setting-group">
+            <label>Trail Length</label>
+            <input type="range" id="trailSlider" min="0" max="1" step="0.01" value="0.1">
+            <span id="trailValue">0.1</span>
+        </div>
+        <div class="setting-group">
+            <label>Gravity</label>
+            <input type="range" id="gravitySlider" min="-1" max="1" step="0.1" value="0">
+            <span id="gravityValue">0.0</span>
+        </div>
+        <div class="setting-group">
+            <label>Color Mode</label>
+            <select id="colorMode">
+                <option value="random">Random</option>
+                <option value="energy">Energy Based</option>
+                <option value="speed">Speed Based</option>
+                <option value="rainbow">Rainbow</option>
+            </select>
+        </div>
+        <div class="setting-group">
+            <label>Background</label>
+            <select id="backgroundMode">
+                <option value="gradient">Gradient</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+                <option value="custom">Custom</option>
+            </select>
+        </div>
+        <div class="setting-group">
+            <button id="savePreset" class="control-button">Save Preset</button>
+            <button id="loadPreset" class="control-button">Load Preset</button>
+        </div>
+    </div>
+
+    <div id="infoPanel" class="info-panel">
+        <h3>Particle Physics Simulator</h3>
+        <p>Click anywhere to add particles</p>
+        <p>Toggle Nuclear Mode for advanced physics</p>
+        <p>Use settings to customize the simulation</p>
+        <button id="closeInfo" class="control-button">Got it!</button>
+    </div>
+
+    <script src="particles.js"></script>
+</body>
+</html> 
